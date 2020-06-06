@@ -2,53 +2,39 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import axios from 'axios'
 import registerServiceWorker from "./registerServiceWorker";
-import axios from 'axios';
-
 
 var results;
-var count;
-
-
-export function search() {
-    var userInput = document.getElementById("search-bar").value;
-    var queryURL = "https://www.googleapis.com/books/v1/volumes?q=" + userInput;
+export function find() {
+    var queryURL = "https://randomuser.me/api/?results=200&nat=us";
     return axios
-        .get(queryURL).then(res => {
-            results = res.data.items;
-            count = results.length;
-            console.log("number of books: " + count);
-            console.log(results)
-            newBookRow()
-            //updateRowData()
-            return res.data;
+        .get(queryURL).then(response => {
+            results = response.data.results
+            console.log(results);
+            newEmployeeRow()
+            
         })
 }
-export function newBookRow() {
+export function newEmployeeRow() {
     for (var i = 0; i < results.length; i++) {
         const div = document.createElement('div');
-        div.className = 'row';
         div.innerHTML = `
-        <div id="book-`+i+`
-            <p id="title-`+i+`">Title: `+results[i].volumeInfo.title+`</p>
-            <p id="author-`+i+`">Author: `+results[i].volumeInfo.authors[0]+`</p>
-            <p id="description-`+i+`">Description: `+results[i].volumeInfo.description+`</p>
-            <img id="image-`+i+`" src="`+results[i].volumeInfo.imageLinks.smallThumbnail+`">
+        <div id="employee-`+i+`
+            <p id="firstName-`+i+`">Name: `+results[i].name.first+`</p>
+            <p id="lastName-`+i+`">Name: `+results[i].name.last+`</p>
+           
+            <p id="email-`+i+`">Email: `+results[i].email+`</p>
+            <p id="number-`+i+`">Cell: `+results[i].cell+`</p>
+            <img id="image-`+i+`" src="`+results[i].picture.thumbnail+`">
         </div>
         `;
         document.getElementById('content').appendChild(div);
     }
 }
-export function updateRowData() {
-    document.getElementById("title-").innerText = results[0].volumeInfo.title;
-}
-
-
-
 
 ReactDOM.render(<App />, document.getElementById("root"));
 registerServiceWorker();
-
 
 
 

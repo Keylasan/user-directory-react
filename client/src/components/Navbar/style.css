@@ -1,16 +1,43 @@
 .navbar {
-    margin-bottom: 0;
-    font-family: 'Popins, sans serif';
-    display: flex;
-    align-items: space-around;
+  margin-bottom: 0;
+  font-family: "Popins, sans serif";
+  display: flex;
+  text-align:center;
   background-color: black;
-  list-style: none;
-  text-decoration: none;
+
+}
+
+.container-fluid{
+  text-align:center;
+}
+
+p {
+  color: whitesmoke;
+  background-color: rgb(110, 60, 130);
+  font-size: 16px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  color: rgb(160, 15, 160);
  
+}
+.employee {
+  color: whitesmoke;
+  background-color: rgb(110, 60, 130);
+  font-size: 16px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
 
-  }
-
-  p{
-    color:whitesmoke;
-    font-size: 20px;
-  }
+button {
+  color: whitesmoke;
+  background-color: rgb(47, 5, 63);
+  font-size: 14px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+div{
+  padding:1%;
+}
